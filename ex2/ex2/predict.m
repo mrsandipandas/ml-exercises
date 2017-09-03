@@ -17,10 +17,13 @@ p = zeros(m, 1);
 
 k = sigmoid(X*theta);
 
-for itr = 1:rows(p)
-  if k(itr) >= 0.5
-    p(itr) = 1;
-  endif
+p = k >= 0.5;
+
+%for itr = 1:rows(p)
+%  if k(itr) >= 0.5
+%    p(itr) = 1;
+%  endif
+
 end
 
 
