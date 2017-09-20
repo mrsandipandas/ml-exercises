@@ -63,7 +63,8 @@ MAX = 20;                         % max 20 function evaluations per line search
 RATIO = 100;                                      % maximum allowed slope ratio
 
 argstr = ['feval(f, X'];                      % compose string used to call function
-for i = 1:(nargin - 3)
+for i = 1:(
+ - 3)
   argstr = [argstr, ',P', int2str(i)];
 end
 argstr = [argstr, ')'];

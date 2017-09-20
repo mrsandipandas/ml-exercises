@@ -46,6 +46,7 @@ X = [ones(m, 1) X];
 %     % This function will return theta and the cost 
 
      for i = 1 : num_labels 
+        y == i
         [theta] = fmincg (@(t)(lrCostFunction(t, X, (y == i), lambda)), initial_theta, options);
         all_theta(i,:)=theta; 
      end
