@@ -81,16 +81,16 @@ end
 regularization = lambda / (2 * m) * (sum((Theta1(:, 2:end) .^ 2)(:)) + sum((Theta2(:, 2:end) .^ 2)(:)));
 J = J + regularization;
 
-for t = 1:m
+for i = 1:m
     for k = 1:num_labels
-        yk = y(t) == k;
-        delta3(k) = htheta(t, k) - yk;
+        yk = y(i) == k;
+        delta3(k) = htheta(i, k) - yk;
     end
-    delta2 = Theta2' * delta3' .* sigmoidGradient([1, z2(t, :)])';
+    delta2 = Theta2' * delta3' .* sigmoidGradient([1, z2(i, :)])';
     delta2 = delta2(2:end);
 
-    Theta1_grad = Theta1_grad + delta2 * a1(t, :);
-    Theta2_grad = Theta2_grad + delta3' * a2(t, :);
+    Theta1_grad = Theta1_grad + delta2 * a1(i, :);
+    Theta2_grad = Theta2_grad + delta3' * a2(i, :);
 end
 
 Theta1_grad = Theta1_grad / m;
